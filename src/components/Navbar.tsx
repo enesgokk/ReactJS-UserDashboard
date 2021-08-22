@@ -33,7 +33,11 @@ export default function Navbar() {
       const id = open ? 'simple-popover' : undefined;
 
     return (
-        <Container>
+        <div className="fullDisplay"> 
+            <div className="navTitle" >
+                <h4>Faturalar</h4>
+            </div>
+            <Container>
             <div className="navbar1">
                     <img className="searchIcon" src={Search} alt="" />
                     <div className="icons">
@@ -81,7 +85,8 @@ export default function Navbar() {
                         </Popover>
                     </div>         
             </div>
-        </Container>
+            </Container>
+            </div>
     )
 }
 

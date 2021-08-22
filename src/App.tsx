@@ -6,9 +6,14 @@ import TodoTask from "./components/TodoTask"
 import { Table,Container} from 'reactstrap';
 import Navbar from "./components/Navbar";
 import  Pagination  from './components/Pagination';
+import Sidebar from './components/Sidebar';
+
+export interface IPagination {
+  postPerPage: number;
+  deadline: number;
+}
 
 const App:FC = () => {
-
   const [task,setTask]=useState<string>("");
   const [deadline,setDeadline]=useState<number>(0);
   const [todoList,setTodoList]=useState<ITask[]>([]);
@@ -42,7 +47,7 @@ const App:FC = () => {
     const currentPosts=task.slice(indexOfFirtPost, indexOfLastPost);
 
     //Change page
-    const paginate=(pageNumber:any)=> setCurrentPage(pageNumber);
+    const paginate=(pageNumber:number)=> setCurrentPage(pageNumber);
 
   return (
     <div className="App">
@@ -54,12 +59,13 @@ const App:FC = () => {
         <button onClick={addTask} >Add Task</button>
       </div>
       
-      {/*Navbar*/}
+      <div className="flex">
+        <Sidebar/>
+      <div className="fullDisplay" >       
       <Navbar/>
-
       <div className="todoList">
       <Container>
-      <Table bordered>
+      <Table>
         <thead>
           <tr>
             <th><input type="checkbox" /></th>
@@ -87,9 +93,12 @@ const App:FC = () => {
         })}
       </Table>
     </Container>
-    <Pagination postPerPage={postPerPage} totalPosts={task.length} paginate={paginate}/> 
+    {/* <Pagination postPerPage={postPerPage} totalPosts={task.length} paginate={paginate}/> */}
       </div>
     </div>
+        </div>
+      </div>
+
   )
 }
 
