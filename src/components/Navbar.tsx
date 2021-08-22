@@ -60,7 +60,7 @@ export default function Navbar() {
                             <Typography className={classes.typography}>
                                 <p>Filtre Ekle</p>
                                 <hr />
-                                <div className="flex">
+                                <div className="flex popoverTitles">
                                     <p>Baslik</p>
                                     <p>Kosul</p>
                                     <p>Deger</p>
@@ -77,7 +77,7 @@ export default function Navbar() {
                                    </select>
                                 </div>
                                 <div className="popoverButton" >
-                                    <button className="popoverCancel" >Iptal</button>
+                                    <button className="popoverCancel">Iptal</button>
                                     <button className="popoverAdd" >Ekle</button>
                                 </div>
                                 

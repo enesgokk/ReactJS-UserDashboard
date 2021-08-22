@@ -5,7 +5,7 @@ import {ITask} from "./Interfaces";
 import TodoTask from "./components/TodoTask"
 import { Table,Container} from 'reactstrap';
 import Navbar from "./components/Navbar";
-import  Pagination  from './components/Pagination';
+import Pagination1 from "./components/Pagination1";
 import Sidebar from './components/Sidebar';
 
 export interface IPagination {
@@ -47,25 +47,37 @@ const App:FC = () => {
     const currentPosts=task.slice(indexOfFirtPost, indexOfLastPost);
 
     //Change page
-    const paginate=(pageNumber:number)=> setCurrentPage(pageNumber);
+    const paginate=(pageNumber:any)=> setCurrentPage(pageNumber);
 
+    const tr =()=>{
+        var tr=<tr>
+        <th scope="row"><input type="checkbox" /></th>
+        <td>DMP</td>
+        <td>561</td>
+        <td>November 16, 2014</td>
+        <th>$576.28</th>
+        <th><button className="paidText">Odendi</button></th>
+        <th><a className="showLink" href="#">Goster</a></th>
+      </tr>;
+        return tr;
+    }
   return (
     <div className="App">
       <div className="header">
         <div className="inputContainer">
-          <input onChange={handleChange} value={task} type="text" name="task" placeholder="Task..." />
-          <input onChange={handleChange} value={deadline} type="number" name="deadline" placeholder="Deadline (in Days)..." />
+          <input onChange={handleChange} value={task} type="text" name="task" placeholder="Servis Adı..." />
+          <input onChange={handleChange} value={deadline} type="number" name="deadline" placeholder="Fatura No..." />
         </div>
-        <button onClick={addTask} >Add Task</button>
+        <button onClick={addTask} >Servis Ekle</button>
       </div>
-      
+      <p className="bonus" >BONUS: Bu alanı kodda gereksiz çok sayıda table datası ve satırı olmaması amacıyla dinamik eklenebilir hale getirdim.</p>
       <div className="flex">
         <Sidebar/>
       <div className="fullDisplay" >       
       <Navbar/>
       <div className="todoList">
       <Container>
-      <Table>
+      <Table id="tableId">
         <thead>
           <tr>
             <th><input type="checkbox" /></th>
@@ -78,22 +90,14 @@ const App:FC = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row"><input type="checkbox" /></th>
-            <td>DMP</td>
-            <td>561</td>
-            <td>November 16, 2014</td>
-            <th>$576.28</th>
-            <th>Ödendi</th>
-            <th><a className="showLink" href="#">Goster</a></th>
-          </tr>
+          {tr()}{tr()}{tr()}{tr()}{tr()}
         </tbody>
         {todoList.map((task: ITask, key:number)=>{
           return <TodoTask key={key} task={task} complateTask={complateTask} />
         })}
       </Table>
     </Container>
-    {/* <Pagination postPerPage={postPerPage} totalPosts={task.length} paginate={paginate}/> */}
+    <Pagination1 postPerPage={postPerPage} totalPosts={25} paginate={paginate}/>
       </div>
     </div>
         </div>

@@ -152,6 +152,7 @@ outline: none;
 }
 .backgroundSidebar>a:focus{
   background-color: #E6F7FF;
+  color: #1890FF;
 }
 .navTitle{
   padding-top: 20px;
@@ -172,4 +173,23 @@ tbody, td, tfoot, th, thead, tr{
 }
 .fullDisplay{
   width: 100%;
+}
+.paidText{
+  border:1px solid #B7EB8F;
+  height: 25px;
+  color:#52C41A;
+  background-color: #F6FFED;
+}
+.popoverTitles{
+  justify-content: space-around;
+}
+.flexEnd{
+  display: flex;
+  justify-content: flex-end;
+}
+.bonus{
+  width: 100%;
+  background-color: tomato;
+  text-align: center;
+  margin: 0;
 }
